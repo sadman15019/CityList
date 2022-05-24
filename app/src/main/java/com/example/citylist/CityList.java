@@ -25,16 +25,16 @@ public class CityList {
 
     /**
      * This returns a sorted list of cities
-     * @return
-     *      Return the sorted list of cities
+     * @param x==0,then sort by cities,if x==1 then sort by provinces
+     * @return Return the sorted list of cities
+     * modified the method to get sorted list based on city along with provinces
      */
-    /*modified the method to get sorted list based on city along with provinces*/
     public List<City> getCities(int x) {
         List<City> cityList = cities;
         if(x==0) {
             Collections.sort(cityList);
         }
-        else
+        else if(x==1)
         {
             Collections.sort(cityList,new Comparator<City>(){
                 public int compare(City c1,City c2)
@@ -46,7 +46,12 @@ public class CityList {
         }
         return cityList;
     }
-    /*A method to delete city from city list*/
+
+    /**
+     *
+     * @param city
+     * A method to delete city from city list
+     */
     public void delete(City city)
     {
         if(cities.contains(city)){
@@ -57,6 +62,11 @@ public class CityList {
            throw new IllegalArgumentException();
         }
     }
+
+    /**
+     *
+     * @return number of items in citylist
+     */
     public int count()
     {
         return cities.size();

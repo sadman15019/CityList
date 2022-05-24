@@ -15,6 +15,9 @@ public class CityListTest {
         return new City("Edmonton", "AB");
     }
 
+    /**
+     * this method is for testing add method of citylist class
+     */
     @Test
     public void testAdd() {
         CityList cityList = mockCityList();
@@ -27,8 +30,10 @@ public class CityListTest {
         assertTrue(cityList.getCities(0).contains(city));
     }
 
+    /**
+     * this method is for testing delete method of CityList class
+     */
     @Test
-    /*this method is for testing delete method*/
     public void testDelete() {
         /*creating and initializing objects for citylist and city class*/
         CityList citylist = new CityList();
@@ -39,7 +44,9 @@ public class CityListTest {
         citylist.delete(city1);
         assertTrue(!citylist.getCities(0).contains(city1));
     }
-
+    /**
+     * this method is for testing add method when there are any exception occurs
+     */
     @Test
     public void testAddException() {
         CityList cityList = new CityList();
@@ -50,9 +57,10 @@ public class CityListTest {
             cityList.add(city);
         });
     }
-
+    /**
+     * this method is for testing delete method when there are any exception occurs
+     */
     @Test
-    /*this method is for testing deleteexception*/
     public void testDeleteException() {
         /*creating and initializing objects for citylist and city class*/
         CityList citylist = new CityList();
@@ -67,6 +75,9 @@ public class CityListTest {
         });
     }
 
+    /**
+     * this method is for testing count method of citylist class
+     */
     @Test
     public void testcount(){
         /*creating and initializing objects for citylist and city class*/
@@ -79,6 +90,9 @@ public class CityListTest {
         citylist.delete(city1);
         assertEquals(1,citylist.count());
     }
+    /**
+     * this method is for testing the getcities method of citylist class
+     */
     @Test
     public void testGetCities() {
         CityList cityList = mockCityList();
@@ -90,6 +104,9 @@ public class CityListTest {
         assertEquals(0, city.compareTo(cityList.getCities(0).get(0)));
         assertEquals(0, mockCity().compareTo(cityList.getCities(0).get(1)));
     }
+    /**
+     * this method is for testing the modified version of getcities method of citylist class
+     */
     @Test
     public void testGetCities_province()
     {
