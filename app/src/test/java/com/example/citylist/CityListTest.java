@@ -79,6 +79,7 @@ public class CityListTest {
         citylist.delete(city1);
         assertEquals(1,citylist.count());
     }
+    @Test
     public void testGetCities() {
         CityList cityList = mockCityList();
         assertEquals(0, mockCity().compareTo(cityList.getCities(0).get(0)));
@@ -88,5 +89,16 @@ public class CityListTest {
 
         assertEquals(0, city.compareTo(cityList.getCities(0).get(0)));
         assertEquals(0, mockCity().compareTo(cityList.getCities(0).get(1)));
+    }
+    @Test
+    public void testGetCities_province()
+    {
+        CityList citylist=new CityList();
+        City city1=new City("Dhaka","Mohammadpur");
+        City city2=new City("Khulna","Fullbarigate");
+        citylist.add(city1);
+        citylist.add(city2);
+        assertEquals(0,city2.compareTo(citylist.getCities(1).get(0)));//comapring city2 with zero indexed city from citylist
+        assertEquals(0,city1.compareTo(citylist.getCities(1).get(1)));//comapring city1 with one indexed city from citylist
     }
 }

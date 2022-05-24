@@ -28,6 +28,7 @@ public class CityList {
      * @return
      *      Return the sorted list of cities
      */
+    /*modified the method to get sorted list based on city along with provinces*/
     public List<City> getCities(int x) {
         List<City> cityList = cities;
         if(x==0) {
@@ -38,7 +39,7 @@ public class CityList {
             Collections.sort(cityList,new Comparator<City>(){
                 public int compare(City c1,City c2)
                 {
-                    return c1.getProvinceName().compareTo(c2.getProvinceName());
+                    return c1.getProvinceName().compareTo(c2.getProvinceName());//compare with respect to province
                 }
             });
 
