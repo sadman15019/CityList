@@ -1,8 +1,11 @@
 package com.example.citylist;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,8 +19,8 @@ public class MainActivity extends AppCompatActivity {
     ListView cityList;
     EditText newName;
     LinearLayout nameField;
-    ArrayAdapter<String> cityAdapter;
-    ArrayList<String> dataList;
+    ArrayAdapter<String> cityAdapter;//through this data is shown in listview from arraylist,works as a bridge
+    ArrayList<String> dataList;//this list contains backend data for list,holding all the city name as an array
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +58,17 @@ public class MainActivity extends AppCompatActivity {
                 cityAdapter.clear();
             }
         });
-
+       /*to make clickable listview
+       i return the position which item is being clicked
+        */
+        cityList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent=new Intent(MainActivity.this,showActivity.class);//to switch to showactivity from newactivity
+                intent.putExtra("city",dataList.get(i)); //datalist is name of arraylist holding name of all cities
+                startActivity(intent);
+            }
+        });
     }
 
 
