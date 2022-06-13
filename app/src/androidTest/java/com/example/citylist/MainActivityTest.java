@@ -23,7 +23,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(AndroidJUnit4.class)
 @LargeTest
-public class MainActivityTest {
+public class  MainActivityTest {
 
     @Rule
     public ActivityScenarioRule<MainActivity> activityRule =
@@ -75,5 +75,16 @@ public class MainActivityTest {
         onData(anything()).inAdapterView(withId(R.id.city_list)).atPosition(0).perform(click()); //Check the content on the list - no content in this case
         Espresso.pressBack(); //Back button
     }
-
+   @Test
+    public void test(){
+       onView(withId(R.id.button_add)).perform(click()); //Click add button to add a city to the list
+       onView(withId(R.id.editText_name)).perform(ViewActions.typeText("Khulna")); //Type a city name
+       Espresso.pressBack();
+       onView(withId(R.id.button_confirm)).perform(click()); //Confirm the city name and add to the list
+       onData(anything()).inAdapterView(withId(R.id.city_list)).atPosition(0).perform(click());//oth position data click and it goes to new activity
+       onView(withId(R.id.newactlayout)).check(matches(isDisplayed()));//to check new activity is displayed after clicking on city name
+       onView(withText("Khulna")).check(matches(isDisplayed()));//to check if city name is displayed in new activity
+       //onView(R.id.button).perform(click());//to check the back button works properly
+       //onView(withId(R.id.mainactivity)).check(matches(isDisplayed()));//to check if main activity is shown afte clicking back button
+   }
 }

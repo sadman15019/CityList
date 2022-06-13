@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
         cityList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent=new Intent(MainActivity.this,showActivity.class);//to switch to showactivity from newactivity
+                Intent intent=new Intent(MainActivity.this,showActivity.class);//to switch to showactivity from main activity
                 intent.putExtra("city",dataList.get(i)); //datalist is name of arraylist holding name of all cities
                 startActivity(intent);
             }
