@@ -18,7 +18,7 @@ public class showActivity extends AppCompatActivity {
         String s=intent.getStringExtra("city");//to catch the city name from main activity
         TextView t=findViewById(R.id.textView);//returns the reference of textview layout
         t.setText(s);//text set with city name
-        Button b=findViewById(R.id.button);
+        Button b=findViewById(R.id.button);//returns the reference of back button
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

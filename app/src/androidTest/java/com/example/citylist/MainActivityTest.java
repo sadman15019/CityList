@@ -81,9 +81,17 @@ public class  MainActivityTest {
        onView(withId(R.id.editText_name)).perform(ViewActions.typeText("Khulna")); //Type a city name
        Espresso.pressBack();
        onView(withId(R.id.button_confirm)).perform(click()); //Confirm the city name and add to the list
-       onData(anything()).inAdapterView(withId(R.id.city_list)).atPosition(0).perform(click());//oth position data click and it goes to new activity
+       onView(withId(R.id.button_add)).perform(click()); //Click add button to add a city to the list
+       onView(withId(R.id.editText_name)).perform(ViewActions.typeText("Dhaka")); //Type a city name
+       Espresso.pressBack();
+       onView(withId(R.id.button_confirm)).perform(click()); //Confirm the city name and add to the list
+       onView(withId(R.id.button_add)).perform(click()); //Click add button to add a city to the list
+       onView(withId(R.id.editText_name)).perform(ViewActions.typeText("Sylhet")); //Type a city name
+       Espresso.pressBack();
+       onView(withId(R.id.button_confirm)).perform(click()); //Confirm the city name and add to the list
+       onData(anything()).inAdapterView(withId(R.id.city_list)).atPosition(1).perform(click());//oth position data click and it goes to new activity
        onView(withId(R.id.newactlayout)).check(matches(isDisplayed()));//to check new activity is displayed after clicking on city name
-       onView(withText("Khulna")).check(matches(isDisplayed()));//to check if city name is displayed in new activity
+       onView(withText("Dhaka")).check(matches(isDisplayed()));//to check if city name is displayed in new activity
        //onView(R.id.button).perform(click());//to check the back button works properly
        //onView(withId(R.id.mainactivity)).check(matches(isDisplayed()));//to check if main activity is shown afte clicking back button
    }
